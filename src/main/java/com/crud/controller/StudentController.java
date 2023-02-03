@@ -69,21 +69,21 @@ public class StudentController {
 		
 	}
 	
-	@DeleteMapping("/{id}")
-	public ResponseEntity deleteSingleStudent(@PathVariable int id){
+		@DeleteMapping("/{id}")
+	public ResponseEntity<HttpStatus> deleteSingleStudent(@PathVariable int id){
 		
 		Student student = this.studentrepo.findById(id).get();
 		this.studentrepo.delete(student);
 		
-		return (ResponseEntity) ResponseEntity.ok();
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 	
 	
 	@DeleteMapping("/")
-	public ResponseEntity deleteAllStudent() {
+	public ResponseEntity<HttpStatus> deleteAllStudent() {
 		
 		this.studentrepo.deleteAll();
-		return (ResponseEntity) ResponseEntity.ok();
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 	
 }
