@@ -75,7 +75,7 @@ public class StudentController {
 		Student student = this.studentrepo.findById(id).get();
 		this.studentrepo.delete(student);
 		
-		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+		return new ResponseEntity<HttpStatus>(HttpStatus.ACCEPTED);
 	}
 	
 	
@@ -83,7 +83,7 @@ public class StudentController {
 	public ResponseEntity<HttpStatus> deleteAllStudent() {
 		
 		this.studentrepo.deleteAll();
-		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+		return new ResponseEntity<HttpStatus>(HttpStatus.ACCEPTED);
 	}
 	
 }
